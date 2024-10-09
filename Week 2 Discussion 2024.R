@@ -67,7 +67,7 @@ scatter1
 
 
 # add another factor and change color base on this factor
-Study$Grade<-as.factor(Study$Grade) # set Grade as a factor
+Study$Grade<-as.character(Study$Grade) # set Grade as a factor
 scatter2 <- ggplot(data = Study,aes(x = Hour, y = Score)) + 
   geom_point(mapping = aes(color = Grade)) + # where we add the new factor
   labs(x="Study Time per Month (hour)", 
