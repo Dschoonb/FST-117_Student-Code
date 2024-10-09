@@ -80,6 +80,16 @@ scatter2
 scatter2+facet_wrap(~Grade)
 
 
+# improve visual clarity caused by discreteness in dataset
+scatter3 <- ggplot(data = Study,aes(x = Grade, y = Hour)) + 
+  geom_point() 
+scatter3 # very discrete
+
+scatter4 <- ggplot(data = Study,aes(x = Grade, y = Hour)) + 
+  geom_jitter() 
+scatter4 # less discrete
+
+
 
 
 
