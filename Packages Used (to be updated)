@@ -1,0 +1,92 @@
+# list of packages (to be updated)
+library(readxl)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+
+
+
+
+
+# install.packages() and library()
+### You will only need to install the package once throughout the whole use of your RStudio -> install.packages()
+### You will need to library the package EVERY TIME after you closed your current session -> library()
+        # i.e., You are using tidyverse for the first time, and you want to format your table. -> first install.packages("tidyverse"), then library(tidyverse)
+        # i.e., You closed your RStudio on Monday, and want to continue working on it. -> only run library(), don't have to run install.packages()
+
+
+
+
+
+# packages used
+
+## readxl
+### to import your excel file into RStudio
+install.packages("readxl")
+library(readxl)
+
+
+
+## tidyverse
+### //!important!// a collection of multiple R packages (including ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, forcats), where each of the packages have their own purposes/uses
+### however, RStudio can glitch occasionally, so it's encouraged to load each package individually with library() to ensure everything works smoothly
+install.packages("tidyverse")
+library(tidyverse)
+#### see link for more information for tidyverse: https://www.tidyverse.org/packages/
+
+
+
+## dplyr
+### to manipulate data frame or tibbles
+library(dplyr)
+
+### common commands:
+filter() # to select specific rows based on conditions
+select() # to choose specific columns
+mutate() # to create or transform columns
+summarize()/summarise() # to calculate summary statistics like mean, sum, etc.
+group_by() # to group data by one or more variables
+arrange() # to sort rows in ascending or descending order
+#### see link for detailed cheatsheet for dplyr: https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf
+
+
+
+## ggplot2
+### to visualize data
+library(ggplot2)
+
+### common commands:
+geom_histogram # histogram
+geom_point # scatter plot
+geom_jitter # improve visual clarity of scatter plot by shifting points
+#### see link for detailed cheatsheet for ggplot2: https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf
+
+
+
+## tidyr
+### to tidy data
+library(tidyr)
+
+### common commands:
+pivot_longer # lengthen data by collapsing multiple columns into 2 columns, i.e., formatting yogurt table - product column and liking column
+pivot_wider # reverse of pivot_longer, widen data by expanding 2 columns into multiple columns
+drop_na # drop rows containing missing values (NA or N/A)
+#### see link for detailed cheatsheet for tidyr: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
