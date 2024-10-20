@@ -6,8 +6,7 @@ library(ggplot2)
 library(tidyr)
 library(plotly)
 library(scatterplot3d)
-library()
-
+library(wesanderson)
 
 
 
@@ -75,6 +74,27 @@ pivot_longer # lengthen data by collapsing multiple columns into 2 columns, i.e.
 pivot_wider # reverse of pivot_longer, widen data by expanding 2 columns into multiple columns
 drop_na # drop rows containing missing values (NA or N/A)
 #### see link for detailed cheatsheet for tidyr: https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf
+
+
+
+## plotly
+### to make graphs (interactive 3 dimension MLR model in discussion 3)
+install.packages("plotly")
+library(plotly)
+
+
+
+## scatterplot3d
+### to make graphs (non-interactive 3 dimension MLR model in discussion 3)
+install.packages("scatterplot3d")
+library(scatterplot3d)
+
+
+
+## wesanderson
+### to change color of plot
+install.packages("wesanderson")
+library(wesanderson)
 
 
 
