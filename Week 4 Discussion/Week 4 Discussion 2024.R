@@ -95,13 +95,20 @@ potato_new <- filter (potato_chips2,
 
 
 
-# TESTING ASSUMPTIONS: all tests above are used for parametric data with equal variance
+# TESTING ASSUMPTIONS: all tests above are used for parametric data with equal variance and t-distribution
 
-# tests to view distribution: 
+# tests to prove normality of distribution: 
 ## (1) plotting histogram 
+## (2) shapiro wilk test
+
 ## plotting a histogram: visualize distribution
 library(ggplot2)
 ggplot(data=potato_chips2) + geom_histogram(mapping=aes(x=liking))
+
+## shapiro wilk test: null hypothesis is that the data is distributed normally. 
+### if the p-value is greater than the alpha (e.g., 0.05), then the data is normally distributed
+### note that t-distribution is more conservative than normal distribution
+with(potato_chips2, shapiro.test(liking))
 
 
 
