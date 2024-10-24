@@ -14,10 +14,10 @@ View(potato_chips2)
 # t-test decision tree
 
 ## 1 mean or 2 means?
-### 1 mean -> 1-sample t-test
-### 2 means -> 2-sample t-test -> are these 2 means evaluated by the same group of panelists or different groups of panelists?
-#### same -> paired t-test
-#### different -> independent t-test
+### 1 mean -> one-sample t-test
+### 2 means -> two-sample t-test -> are these 2 means evaluated by the same group of panelists or different groups of panelists?
+#### same panel -> paired t-test
+#### different panel -> independent t-test
 
 ## do you know which direction the test will go?
 ### yes -> one-tailed -> less or more?
@@ -30,7 +30,7 @@ View(potato_chips2)
 
 
 # scenario 1: You want to test the liking scores of potato chip formula a vs. potato chip formula b. Are they significantly different?
-## 2 means -> 2-sample t-test
+## 2 means -> two-sample t-test
 ## evaluated by same group of panelists -> paired t-test
 ## did not clarify direction -> two-tailed
 t.test(potato_chips1$a,potato_chips1$b, # call 2 means and order does not matter here, order only change +/- t-score, does not affect absolute value
@@ -43,9 +43,9 @@ t.test(potato_chips1$a,potato_chips1$b, # call 2 means and order does not matter
 
 
 # scenario 2: Is the saltiness rating of the new formulation significantly less than 8 (saltiness rating of previous formulation)?
-## 1 mean -> 1-sample t-test
+## 1 mean -> one-sample t-test
 ## knew the direction (less than 8) -> alternative="l"
-t.test(potato_chips2$liking,mu=8, # 1-sample t-test
+t.test(potato_chips2$liking,mu=8, # one-sample t-test
        alternative = "l", # one-tailed less
        var.equal = TRUE)
 
@@ -73,7 +73,7 @@ t.test(potato_chips2$liking,mu=8,
 
 
 # scenario 3a: Do females have a different liking score than males? (assume only female and male in dataset)
-## 2 means -> 2-sample t-test
+## 2 means -> two-sample t-test
 ## evaluated by different groups of panelists -> independent t-test
 ## did not know direction -> two-tailed
 t.test(data=potato_chips2,
@@ -97,17 +97,11 @@ potato_new <- filter (potato_chips2,
 
 # TESTING ASSUMPTIONS: all tests above are used for parametric data with equal variance
 
-# tests to prove normality of distribution: 
+# tests to view distribution: 
 ## (1) plotting histogram 
-## (2) shapiro wilk test
-
 ## plotting a histogram: visualize distribution
 library(ggplot2)
 ggplot(data=potato_chips2) + geom_histogram(mapping=aes(x=liking))
-
-## shapiro wilk test: null hypothesis is that the data is distributed normally. 
-### if the p-value is greater than the alpha (e.g., 0.05), then the data is normally distributed
-with(potato_chips2, shapiro.test(liking))
 
 
 
