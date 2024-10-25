@@ -78,7 +78,7 @@ t.test(potato_chips2$liking,mu=8,
 ## did not know direction -> two-tailed
 t.test(data=potato_chips2,
        liking~gender, # call gender as a factor of liking
-       paired=FALSE,
+       paired=FALSE, #/!\ if you have mac system and R keeps telling you cannot use 'paired' in formula method, try to delete this line and re-run the code 
        alternative="t", # can omit this line since default in t.test() is alternative="t"
        var.equal = TRUE)
 
