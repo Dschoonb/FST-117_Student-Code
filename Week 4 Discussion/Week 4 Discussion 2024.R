@@ -76,12 +76,29 @@ t.test(potato_chips2$liking,mu=8,
 ## 2 means -> two-sample t-test
 ## evaluated by different groups of panelists -> independent t-test
 ## did not know direction -> two-tailed
+
+### formula method (demonstrated during discussion) #########################
 t.test(data=potato_chips2,
        liking~gender, # call gender as a factor of liking
        paired=FALSE, #/!\ if R keeps telling you cannot use 'paired' in formula method, try to delete this line and re-run the code 
        alternative="t", # can omit this line since default in t.test() is alternative="t"
        var.equal = TRUE)
 
+### default S3 method (another approach of avoiding paired=FALSE error in formula method) ######################
+library(tidyverse)
+#### format data
+##### pivot liking into wider form (a reverse manipulation of pivot_longer in discussion 1)
+##### to ensure integrity of dataframe, we need to have at least 1 column with no NA, therefore, we introduct helper column here (helper_col)
+##### if you have a column with no NA already, you can skip introducing helper column
+potato_wide <- potato_chips2%>%
+  mutate(helper_col=row_number())%>% # establish a help column to ensure at least 1 col does not contain NA, although unnecessary in this case
+  pivot_wider(names_from = "gender",
+              values_from = "liking") # pivot into wider form, 1 gender per column
+
+t.test(potato_wide$male,potato_wide$female, # call variables in t test
+       paired=FALSE, # independent
+       alternative = "t", # two-tailed
+       var.equal = TRUE)
 
 
 
