@@ -7,6 +7,7 @@ library(tidyr)
 library(plotly)
 library(scatterplot3d)
 library(wesanderson)
+library(agricolae)
 
 
 
@@ -21,6 +22,17 @@ library(wesanderson)
 
 
 # packages used
+
+## default functions in R
+### basic functions embedded in RStudio, do not need to install packages
+
+### common commands:
+View() # pull up a dataframe existed in your environment in table format
+summary # pull up a summary of data analysis you just run
+str() # see dataframe (also often abbreviated as df) structure, inspect list, check variable types (numeric, character, or factor)
+t.test() # run t-test
+
+
 
 ## readxl
 ### to import your excel file into RStudio
@@ -98,8 +110,14 @@ library(wesanderson)
 
 
 
+## agricolae
+## to run a variety of statistical analysis (especially for experimental design and ANOVA)
+install.packages("agricolae")
+library(agricolae)
 
-
+### common commands:
+LSD.test() # multiple comparison, LSD and Bonferroni
+HSD.test() # multiple comparison, Tukey
 
 
 
