@@ -31,7 +31,7 @@ View() # pull up a dataframe existed in your environment in table format
 summary # pull up a summary of data analysis you just run
 str() # see dataframe (also often abbreviated as df) structure, inspect list, check variable types (numeric, character, or factor)
 t.test() # run t-test
-
+aov() # run ANOVA
 
 
 ## readxl
