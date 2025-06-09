@@ -8,12 +8,16 @@ library(plotly)
 library(scatterplot3d)
 library(wesanderson)
 library(agricolae)
+library(FactoMineR)
+library(factoextra)
+
+
 
 
 
 # install.packages() and library()
 ### You will only need to install the package once throughout the whole use of your RStudio -> install.packages()
-### You will need to library the package EVERY TIME after you closed your current session -> library()
+### You will need to library the package EVERY TIME after you close your current session -> library()
         # i.e., You are using tidyverse for the first time, and you want to format your table. -> first install.packages("tidyverse"), then library(tidyverse)
         # i.e., You closed your RStudio on Monday, and want to continue working on it. -> only run library(), don't have to run install.packages()
 
@@ -111,7 +115,7 @@ library(wesanderson)
 
 
 ## agricolae
-## to run a variety of statistical analysis (especially for experimental design and ANOVA)
+## to run a variety of statistical analyses (especially for experimental design and ANOVA)
 install.packages("agricolae")
 library(agricolae)
 
@@ -121,12 +125,24 @@ HSD.test() # multiple comparison, Tukey
 
 
 
+## FactoMineR
+## to run multivariate data analyses (very often used in sensory science)
+install.packages("FactoMineR")
+library(FactoMineR)
+
+### common commands:
+PCA() # perform PCA (principal component analysis)
 
 
 
+## factoextra
+## to visualize multivariate data analyses (transform data into plots for easier understanding)
+install.packages("factoextra")
+library(factoextra)
 
-
-
-
+### common commands:
+get_eigenvalue() # get eigenvalue
+fviz_screeplot() # generate Scree plot (a plot visualizing eigenvalues)
+fviz_pca_biplot() # generate Bi-plot
 
 
