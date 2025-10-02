@@ -61,7 +61,7 @@ yogurt2 %>% count(consumer, product) # for each consumer per product, how many d
 ## average
 yogurt2 %>%
   group_by(product)%>%
-  dplyr::summarize(Mean=mean(liking,na.rm=TRUE))
+  summarise(Mean=mean(liking,na.rm=TRUE))
 
 
 
@@ -80,6 +80,9 @@ soda_table2 <- c(34,52,76,38)
 soda_table2
 chisq.test(soda_table2)
 
+# find critical chi-sq
+qchisq()
+
 
 
 ## 2-way chi-sq
@@ -95,8 +98,6 @@ ggplot(data = yogurt2)+
 
 
 
-##### end #####
-
 ## boxplot
 ggplot(data = yogurt2)+
   geom_boxplot(mapping = aes(x=product, y=liking))
@@ -104,3 +105,8 @@ ggplot(data = yogurt2)+
   geom_boxplot(mapping = aes(x=product, 
                              y=liking,
                              color=product))
+
+
+
+## binomial test
+dbinom()
