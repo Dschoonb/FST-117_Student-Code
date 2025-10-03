@@ -1,0 +1,78 @@
+# I want to rename column names
+new_data <- rename_at(old_data,
+                      order_of_the_column_being_renamed,
+                      ~"new_name")
+
+
+
+
+
+
+# I want to delete columns
+new_data <- select(old_data,
+                    -4, # delete the 4th col
+                    -5) # delete the 5th col
+
+
+
+
+
+# I want to pivot from wide format into long format
+new_data <- pivot_longer(old_data_in_wide_format,
+                        cols = starts_with("P"), # col name starts with P, ie. P1, P2,...,P8
+                        names_to = "product", # transpose to a new column call "product"
+                        values_to = "liking",
+                        values_drop_na = TRUE)
+
+
+
+
+
+# I want to count the occurrences based on certain conditions
+your_data %>%
+  count(your_condition)
+
+your_data %>%
+  count(condition1, condition2)
+
+
+
+
+
+# I want to average based on certain conditions
+your_data %>%
+  grou_by(your_condition) %>%
+  summarize(new_column_name = mean(your_variable_being_averaged, na.rm=TRUE))
+
+
+
+
+
+# I want to create a table
+table_name <- table(your_long_data$`variable1`,
+                    your_long_data$`variable2`)
+
+
+
+
+
+# I want to run chi-sq
+chisq.test(table_name) # same function for both 1-way and 2-way
+
+
+
+
+
+# I want to plot histogram
+ggplot(data = your_data) +
+  geom_histogram(mapping = aes(x = your_x_variable))
+
+
+
+
+
+# I want to plot box plot
+ggplot(data = your_data) +
+  geom_boxplot(mapping = aes(x = your_x_variable,
+                              y = your_y_variable,
+                              color = color_by_certain_variable))
