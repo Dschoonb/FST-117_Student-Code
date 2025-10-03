@@ -1,115 +1,64 @@
-## export plots in png format for following homework
-
-
-
-
-
-## FAQs
-# change column name
-# option 1
-colnames(yogurt) <- c("consumer","product","liking")
-View(yogurt)
-# option 2
-install.packages("tidyverse")
-library(tidyverse)
-yogurt1 <-rename_at(yogurt,1,~"consumer")
-View(yogurt1)
-yogurt1 <-rename_at(yogurt,5,~"product")
-# for aforementioned codes, you should only select one option
-# if you run option 1, 4th column to last columns will result in empty column names (indicated as NA by RStudio) because you only renamed 3 columns here, and you won't be able to run option 2
-# to resolve this problem, you have 2 ways: (1) import your dataset again; (2) rename every column, in this case 9 of them, and then run option 2
-# do not make a column name blank, if the column name is blank originally, you can change it with colnames()
-
-
-
-
-
-## import dataset
+# Load Packages -----------------------------------------------------------
 library(readxl)
-Study <- read_excel("Study Score.xlsx", 
-                          sheet = "Sheet 1")
-
-
-
-
-
-## library packages needed
 library(tidyverse)
-install.packages("ggplot2")
 library(ggplot2)
 
+# Load Data ---------------------------------------------------------------
+Data_Wide <- read_excel("week 2/FST 117_2025_Jelly Bean_Dataset.xlsx")
+ 
+
+# Modify Structure of Dataset ---------------------------------------------
+Data_Long <- Data_Wide %>%
+  pivot_longer(
+    cols = matches("_(green_apple|juicy_pear|sunkist_lime|mango|matcha_milk_tea)$"), 
+    # select columns that end with these flavor names
+    names_to = c("attribute", "product"), 
+    # split column names into two new columns: attribute and product
+    names_pattern = "(.*)_(green_apple|juicy_pear|sunkist_lime|mango|matcha_milk_tea)$", 
+    # regex pattern to capture attribute and product
+    values_to = "value",
+    # name of the new column to hold values (temporary)
+    values_transform = list(value = as.character)  
+    # convert everything to character temporarily
+  ) %>%
+  pivot_wider( # Column too long now we pivot wider to get attributes as columns
+    names_from = attribute, # names of new columns from attribute values
+    values_from = value
+  ) %>%
+  # Convert numeric columns back to numeric
+  mutate(
+    Subject = as.factor(Subject),
+    Gender = as.factor(Gender),
+    Region = as.factor(Region),
+    Candy_Frequency = as.factor(Candy_Frequency),
+    Jelly_Bean_Frequency = as.factor(Gender),
+    product = as.factor(product),
+    product = as.factor(product),
+    product = as.factor(product),
+    Guess_the_Flavor = as.character(Guess_the_Flavor),
+    Guess_the_Flavor_Corret = as.character(Guess_the_Flavor_Corret),
+    Liking_Score = as.numeric(Liking_Score),
+    Sweetness_Intensity = as.numeric(Sweetness_Intensity),
+    Flavor_Novelty = as.numeric(Flavor_Novelty),
+    Order = as.factor(Order),
+    Triangle_Test = as.character(Triangle_Test),
+    Triangle_Test_Correct = as.character(Triangle_Test_Correct)
+    )
+
+str(Data_Long)
+
+#Modify flavor novelty variable to be flipped 1 is 7 and 7 is 1
+Data_Long <- Data_Long %>%
+  mutate(Flavor_Novelty = (7 + 1) - Flavor_Novelty)
 
 
-
-
-## Scatter Plots
-
-
-# basic scatter plot
-scatter <- ggplot(data = Study,aes(x = Hour, y = Score)) + 
-  geom_point() 
-scatter # view your plot on bottom right corner
-
-
-# add axis label and title
-scatter+labs(x="Study Time per Month (hour)", 
-             y="Midterm Exam Score", 
-             title = "Score vs. Study Time")
-
-
-# change color of points
-scatter1 <- ggplot(data = Study,aes(x = Hour, y = Score)) + 
-  geom_point(color="orange") + # where we change the color
-  labs(x="Study Time per Month (hour)", 
-       y="Midterm Exam Score", 
-       title = "Score vs. Study Time")
-scatter1
-
-
-# add another factor and change color base on this factor
-Study$Grade<-as.character(Study$Grade) # set Grade as a factor
-scatter2 <- ggplot(data = Study,aes(x = Hour, y = Score)) + 
-  geom_point(mapping = aes(color = Grade)) + # where we add the new factor
-  labs(x="Study Time per Month (hour)", 
-       y="Midterm Exam Score", 
-       title = "Score vs. Study Time") #same as above
-scatter2
-
-
-# make sub-plots base on a factor
-scatter2+facet_wrap(~Grade)
-
-
-# improve visual clarity caused by discreteness in dataset
-scatter3 <- ggplot(data = Study,aes(x = Grade, y = Hour)) + 
-  geom_point() 
-scatter3 # very discrete
-
-scatter4 <- ggplot(data = Study,aes(x = Grade, y = Hour)) + 
-  geom_jitter() 
-scatter4 # less discrete
-
-
-
-
-
-## Correlation
-cor.test (Study$Score, Study$Hour, method = "pearson") # we can change the method according to need, pearson/ spearman/ kendall
-?cor.test
-
-
-
-
-
+# Basic Data Exploration --------------------------------------------------
 ## measures of dispersion
-
 # mean
-mean(Study$Hour)
-
+mean(Data_Long$Liking_Score)
 
 # median
-median(Study$Hour)
-
+median(Data_Long$Liking_Score)
 
 # mode
 # R does not have a built-in function for mode, we need to create our own:
@@ -117,48 +66,103 @@ getmode <- function(v) {
   uniqv <- unique(v)
   uniqv[which.max(tabulate(match(v, uniqv)))]
 }
-getmode(Study$Hour)
-
-
+getmode(Data_Long$Liking_Score)
 
 # range
-range(Study$Score)
-
-
+range(Data_Long$Liking_Score)
+  
 # variance
-var(Study$Score)
-
+var(Data_Long$Liking_Score)
 
 # standard deviation
-sd(Study$Score)
-
+sd(Data_Long$Liking_Score)
 
 # IQR
-IQR(Study$Score) # 3rd quartile - 1st quartile
+IQR(Data_Long$Liking_Score) # 3rd quartile - 1st quartile
+
+# What if I want the means for each product?
+Data_Long %>%
+  group_by(product) %>%
+  summarise(mean(Liking_Score))
+
+
+# Summary of the whole dataset
+summary(Data_Long)
 
 
 
-
-
+# Simple Visualizations of Data ---------------------------------------------------
 ## Histograms
 # basic histogram
-ggplot(data = Study)+
-  geom_histogram(mapping = aes(x=Hour))
+Data_Long %>% 
+  ggplot() +
+  geom_histogram(mapping = aes(x=Liking_Score))
 
 
 # prettier histogram
-ggplot(data = Study) +
-  geom_histogram(mapping = aes(x = Hour), 
-                 bins = 53, # adjust number of bins
-                 fill = "skyblue", # change fill color
-                 color = "black") + # add border color
-  labs(title = "Distribution of Study Hours",
-       x = "Study Hour",
-       y = "Count") +
-  theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5, size = 14),# center and resize title
-        axis.title = element_text(size = 12))# resize axis labels
+Data_Long %>% 
+  ggplot() +
+  geom_histogram(mapping = aes(x = Liking_Score), 
+                 fill = "skyblue") +
+  facet_wrap(~product)
 
-Study %>% 
-  count(Hour) %>%
-  View() # see count of study hour, and adjust bins accordingly
+
+# change number of bins (matters when looking at true continuous data)
+Data_Long %>%
+  ggplot() +
+  geom_histogram(mapping = aes(x = Liking_Score), 
+                 fill = "skyblue", 
+                 bins = 5) +
+  facet_wrap(~product)
+
+
+#2D Visualizations of Data ---------------------------------------------------------------
+## Basic Scatter Plot
+a1 <- Data_Long %>% 
+  ggplot(aes(x = Liking_Score, y = Flavor_Novelty))
+print(a1) #view plot
+
+# add points
+a2 <- a1 + geom_point()
+print(a2)
+
+# Jitter points
+a3 <- a1 + geom_jitter()
+print(a3)
+
+#A dd Labels
+a4 <- a3 + labs(x="Liking", y="Flavor Novelty", title = "Jelly Bean: Liking vs. Flavor Novelty")
+print(a4)
+
+
+## Scatter Plot with colors and a different theme
+b1 <- Data_Long %>% 
+  ggplot(aes(x = Liking_Score, y = Flavor_Novelty)) +
+  geom_jitter(color= "orange") + # change point color
+  labs(x="Liking", y="Flavor Novelty", title = "Jelly Bean: Liking vs. Flavor Novelty") +
+  theme_minimal() # change overall theme
+print(b1)
+
+## Adding additional variables
+Data_Long$Candy_Frequency <- as.factor(Data_Long$Candy_Frequency) # set Grade as a factor
+
+c1 <- Data_Long %>% 
+  ggplot(aes(x = Liking_Score, y = Flavor_Novelty)) + 
+  geom_jitter(mapping = aes(color = product)) + # where we add the new factor
+  labs(x="Liking", y="Flavor Novelty", title = "Jelly Bean: Liking vs. Flavor Novelty", color = "Candy Frequency") +
+  theme_minimal()
+print(c1)
+
+# make sub-plots base on a factor
+c1 + facet_wrap(~product)
+
+# Statistical Analysis of Data ---------------------------------------------------------------
+## Correlation
+cor.test(Data_Long$Liking_Score, Data_Long$Flavor_Novelty, method = "pearson") 
+# we can change the method according to need, pearson/ spearman/ kendall
+?cor.test
+
+Data_Long %>%
+  group_by(product) %>%
+  summarise(cor(Liking_Score, Flavor_Novelty, method = "pearson")) # need to use cor instead of cor.test
+
