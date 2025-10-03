@@ -1,0 +1,81 @@
+library(readxl)
+
+yogurt <- read_excel("week 1/Yogurt_liking.xlsx",
+                     sheet = "Liking_8yogurts")
+
+# change column name by 
+# colnames(yogurt) <- c("consumer", "product", "liking")
+
+
+
+library(tidyverse)
+yogurt1 <- rename_at(yogurt, 1, ~"consumer")
+
+yogurt2 <- pivot_longer(yogurt1, !consumer,
+                        names_to = "product",
+                        values_to = "liking")
+
+View(yogurt2)
+
+
+yogurt3 <- pivot_longer(yogurt1,
+                        cols = starts_with("P"),
+                        names_to = "product",
+                        names_prefix = "P",
+                        values_to = "liking",
+                        values_drop_na = TRUE)
+
+yogurt4 <- select(yogurt1, -4, -5)
+
+
+yogurt2 %>% count(consumer,product)
+yogurt2 %>% count(consumer)
+# %>% shortcut with Ctrl+Shift+M
+
+
+yogurt2 %>% 
+  group_by(product) %>% 
+  summarise(Mean = mean(liking, na.rm=TRUE))
+
+
+soda <- read_excel("week 1/Soda.xlsx",
+                   sheet = "Sheet1")
+
+soda_table <- table(soda$`Soda Preference`)
+# <- shortcut with Alt+-
+
+
+
+chisq.test(soda_table)
+
+
+soda <- read_excel("week 1/Soda.xlsx",
+                   sheet = "Sheet1")
+
+soda %>% count(`Soda Preference`)
+
+soda_table2 <- c(34,52,76,38)
+
+chisq.test(soda_table2)
+
+
+soda_table3 <- table(soda$`Soda Preference`,soda$Gender)
+
+chisq.test(soda_table3)
+
+ggplot(data = yogurt2) +
+  geom_histogram(mapping = aes(x=liking),
+                 binwidth = 0.5
+                 # how wide the bins/bars are
+                 )
+
+
+ggplot(data = yogurt2) +
+  geom_boxplot(mapping = aes(x = product,
+                             y = liking))
+
+
+
+
+
+
