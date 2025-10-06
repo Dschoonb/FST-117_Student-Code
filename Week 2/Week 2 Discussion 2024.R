@@ -148,13 +148,13 @@ Data_Long$Candy_Frequency <- as.factor(Data_Long$Candy_Frequency) # set Grade as
 
 c1 <- Data_Long %>% 
   ggplot(aes(x = Liking_Score, y = Flavor_Novelty)) + 
-  geom_jitter(mapping = aes(color = product)) + # where we add the new factor
+  geom_jitter(mapping = aes(color = Candy_Frequency)) + # where we add the new factor
   labs(x="Liking", y="Flavor Novelty", title = "Jelly Bean: Liking vs. Flavor Novelty", color = "Candy Frequency") +
   theme_minimal()
 print(c1)
 
 # make sub-plots base on a factor
-c1 + facet_wrap(~product)
+c1 + facet_wrap(~Candy_Frequency)
 
 # Statistical Analysis of Data ---------------------------------------------------------------
 ## Correlation
@@ -163,6 +163,12 @@ cor.test(Data_Long$Liking_Score, Data_Long$Flavor_Novelty, method = "pearson")
 ?cor.test
 
 Data_Long %>%
-  group_by(product) %>%
+  group_by(Candy_Frequency) %>%
   summarise(cor(Liking_Score, Flavor_Novelty, method = "pearson")) # need to use cor instead of cor.test
 
+table(Data_Long$Candy_Frequency)
+
+
+
+# how many observations in each group
+# if one group has very few observations, correlation may not be reliable
