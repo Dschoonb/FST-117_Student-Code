@@ -2,7 +2,7 @@
 library(readxl)
 library(tidyverse)
 
-# Load Data ---------------------------------------------------------------
+# Load Wide Data ---------------------------------------------------------------
 Data_Wide <- read_excel("week 2/FST 117_2025_Jelly Bean_Dataset.xlsx")
 
 
@@ -23,31 +23,14 @@ Data_Long <- Data_Wide %>%
   pivot_wider( # Column too long now we pivot wider to get attributes as columns
     names_from = attribute, # names of new columns from attribute values
     values_from = value
-  ) %>%
-  # Convert numeric columns back to numeric
-  mutate(
-    Subject = as.factor(Subject),
-    Gender = as.factor(Gender),
-    Region = as.factor(Region),
-    Candy_Frequency = as.factor(Candy_Frequency),
-    Jelly_Bean_Frequency = as.factor(Gender),
-    product = as.factor(product),
-    product = as.factor(product),
-    product = as.factor(product),
-    Guess_the_Flavor = as.character(Guess_the_Flavor),
-    Guess_the_Flavor_Corret = as.character(Guess_the_Flavor_Corret),
-    Liking_Score = as.numeric(Liking_Score),
-    Sweetness_Intensity = as.numeric(Sweetness_Intensity),
-    Flavor_Novelty = as.numeric(Flavor_Novelty),
-    Order = as.factor(Order),
-    Triangle_Test = as.character(Triangle_Test),
-    Triangle_Test_Correct = as.character(Triangle_Test_Correct)
-  )
+  ) %>% 
+  mutate(Flavor_Novelty = (7 + 1) - as.numeric(Flavor_Novelty)) %>%
+  #flip novelty scale so 1 = very novel, 7 = not at all novel
+  select(-starts_with("Guess_the_Flavor"), -starts_with("Triangle_Test")) %>%
+  # remove Guess the Flavor and Triangle Test columns
+  select(Subject, product, Order, everything())
+  # reorder columns to have Subject, product, Order first)
 
 str(Data_Long)
-
-#Modify flavor novelty variable to be flipped 1 is 7 and 7 is 1
-Data_Long <- Data_Long %>%
-  mutate(Flavor_Novelty = (7 + 1) - Flavor_Novelty)
 
 write.csv(Data_Long, "week 2/FST 117_2025_Jelly Bean_Dataset_Long.csv", row.names = FALSE)

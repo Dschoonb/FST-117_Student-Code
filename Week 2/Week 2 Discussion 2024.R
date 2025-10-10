@@ -1,5 +1,5 @@
 # Load Packages -----------------------------------------------------------
-library(readxl)
+library(readr)
 library(tidyverse)
 library(ggplot2)
 
@@ -7,11 +7,31 @@ library(ggplot2)
 # Load Data ---------------------------------------------------------------
 Data_Long <- read.csv("week 2/FST 117_2025_Jelly Bean_Dataset_Long.csv")
 
+# Modify Data Types -------------------------------------------------------
+Data_Long <- 
+  Data_Long %>% 
+  mutate( 
+    Subject = as.factor(Subject),
+    product = as.factor(product),
+    Order = as.factor(Order),
+    Gender = as.factor(Gender),
+    Region = as.factor(Region),
+    Candy_Frequency = as.factor(Candy_Frequency),
+    Jelly_Bean_Frequency = as.factor(Jelly_Bean_Frequency),
+    Liking_Score = as.numeric(Liking_Score),
+    Sweetness_Intensity = as.numeric(Sweetness_Intensity),
+    Flavor_Novelty = as.numeric(Flavor_Novelty)
+  )
 
 # Basic Data Exploration --------------------------------------------------
-## measures of dispersion
+## measures of central tendency
 # mean
 mean(Data_Long$Liking_Score)
+
+# What if I want the means for each product?
+Data_Long %>%
+  group_by(product) %>%
+  summarise(mean(Liking_Score))
 
 # median
 median(Data_Long$Liking_Score)
@@ -24,6 +44,7 @@ getmode <- function(v) {
 }
 getmode(Data_Long$Liking_Score)
 
+## measures of dispersion
 # range
 range(Data_Long$Liking_Score)
   
@@ -36,10 +57,6 @@ sd(Data_Long$Liking_Score)
 # IQR
 IQR(Data_Long$Liking_Score) # 3rd quartile - 1st quartile
 
-# What if I want the means for each product?
-Data_Long %>%
-  group_by(product) %>%
-  summarise(mean(Liking_Score))
 
 # Summary of the whole dataset
 summary(Data_Long)
@@ -48,13 +65,13 @@ summary(Data_Long)
 
 # Simple Visualizations of Data ---------------------------------------------------
 ## Histograms
-# basic histogram
+# Basic histogram
 Data_Long %>% 
   ggplot() +
   geom_histogram(mapping = aes(x=Liking_Score))
 
 
-# prettier histogram
+# More information with color and facets
 Data_Long %>% 
   ggplot() +
   geom_histogram(mapping = aes(x = Liking_Score), 
@@ -98,9 +115,8 @@ b1 <- Data_Long %>%
   theme_minimal() # change overall theme
 print(b1)
 
-## Adding additional variables
-Data_Long$Candy_Frequency <- as.factor(Data_Long$Candy_Frequency) # set Grade as a factor
 
+## Adding additional variables
 c1 <- Data_Long %>% 
   ggplot(aes(x = Liking_Score, y = Flavor_Novelty)) + 
   geom_jitter(mapping = aes(color = Candy_Frequency)) + # where we add the new factor
@@ -108,25 +124,37 @@ c1 <- Data_Long %>%
   theme_minimal()
 print(c1)
 
-# make sub-plots base on a factor
-c1 + facet_wrap(~Candy_Frequency)
+c1 + facet_wrap(~Candy_Frequency, drop=FALSE)
 
-# Statistical Analysis of Data ---------------------------------------------------------------
-## Correlation
+
+#Making sure the levels are in order
+Data_Long$Candy_Frequency <- factor(
+  Data_Long$Candy_Frequency,
+  levels = c(
+    "Everyday",
+    "Several times a week",
+    "Once a week",
+    "Several times a month",
+    "Once a month",
+    "Less than once a month"
+  )
+)
+#re-run the plot
+
+
+
+# Correlation ---------------------------------------------------------------
 cor.test(Data_Long$Liking_Score, Data_Long$Flavor_Novelty, method = "pearson") 
 # we can change the method according to need, pearson/ spearman/ kendall
-?cor.test
 
 Data_Long %>%
   group_by(Candy_Frequency) %>%
-  summarise(cor(Liking_Score, Flavor_Novelty, method = "pearson")) # need to use cor instead of cor.test
-
-Data_Long %>%
-  summarise(cor(Liking_Score, Flavor_Novelty, method = "pearson")) # need to use cor instead of cor.test
-
-table(Data_Long$Candy_Frequency)
-
+  summarise(cor(Liking_Score, Flavor_Novelty, method = "pearson")) # need to use cor instead of cor.test for this coding structure
 
 
 # how many observations in each group
 # if one group has very few observations, correlation may not be reliable
+table(Data_Long$Candy_Frequency)
+
+
+
