@@ -1,0 +1,276 @@
+"Subject","product","Order","Gender","Region","Candy_Frequency","Jelly_Bean_Frequency","Liking_Score","Sweetness_Intensity","Flavor_Novelty"
+1,"green_apple","4","Female","East Asia (e.g., China, Korea, Japan)","Less than once a month","once a month","5","4",5
+1,"juicy_pear","2","Female","East Asia (e.g., China, Korea, Japan)","Less than once a month","once a month","7","5",3
+1,"sunkist_lime","1","Female","East Asia (e.g., China, Korea, Japan)","Less than once a month","once a month","8","7",2
+1,"mango","3","Female","East Asia (e.g., China, Korea, Japan)","Less than once a month","once a month","8","9",2
+1,"matcha_milk_tea","5","Female","East Asia (e.g., China, Korea, Japan)","Less than once a month","once a month","8","5",3
+2,"green_apple","5","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Less than once a month","Less than once a month","3","9",4
+2,"juicy_pear","3","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Less than once a month","Less than once a month","1","9",7
+2,"sunkist_lime","1","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Less than once a month","Less than once a month","7","8",4
+2,"mango","2","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Less than once a month","Less than once a month","1","9",1
+2,"matcha_milk_tea","4","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Less than once a month","Less than once a month","7","8",5
+3,"green_apple","4","Female","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Once a week","Less than once a month","5","5",4
+3,"juicy_pear","5","Female","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Once a week","Less than once a month","2","4",7
+3,"sunkist_lime","3","Female","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Once a week","Less than once a month","4","6",2
+3,"mango","1","Female","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Once a week","Less than once a month","7","6",4
+3,"matcha_milk_tea","2","Female","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Once a week","Less than once a month","7","5",4
+4,"green_apple","2","Male","United States","Once a week","Less than once a month","7","8",3
+4,"juicy_pear","4","Male","United States","Once a week","Less than once a month","4","6",3
+4,"sunkist_lime","5","Male","United States","Once a week","Less than once a month","7","6",3
+4,"mango","3","Male","United States","Once a week","Less than once a month","6","7",4
+4,"matcha_milk_tea","1","Male","United States","Once a week","Less than once a month","7","7",3
+5,"green_apple","1","Female","United States","Several times a month","Less than once a month","8","7",1
+5,"juicy_pear","2","Female","United States","Several times a month","Less than once a month","9","8",2
+5,"sunkist_lime","4","Female","United States","Several times a month","Less than once a month","7","6",3
+5,"mango","5","Female","United States","Several times a month","Less than once a month","8","8",3
+5,"matcha_milk_tea","3","Female","United States","Several times a month","Less than once a month","4","7",4
+6,"green_apple","3","Female","United States","Several times a week","Less than once a month","6","7",4
+6,"juicy_pear","1","Female","United States","Several times a week","Less than once a month","1","7",7
+6,"sunkist_lime","2","Female","United States","Several times a week","Less than once a month","7","7",2
+6,"mango","4","Female","United States","Several times a week","Less than once a month","8","8",2
+6,"matcha_milk_tea","5","Female","United States","Several times a week","Less than once a month","7","6",5
+7,"green_apple","5","Female","United States","Once a week","Less than once a month","6","9",5
+7,"juicy_pear","4","Female","United States","Once a week","Less than once a month","1","8",7
+7,"sunkist_lime","2","Female","United States","Once a week","Less than once a month","3","7",7
+7,"mango","1","Female","United States","Once a week","Less than once a month","7","8",5
+7,"matcha_milk_tea","3","Female","United States","Once a week","Less than once a month","1","7",7
+8,"green_apple","3","Male","East Asia (e.g., China, Korea, Japan)","Several times a month","I have never eaten Jelly Beans","5","6",5
+8,"juicy_pear","5","Male","East Asia (e.g., China, Korea, Japan)","Several times a month","I have never eaten Jelly Beans","2","6",7
+8,"sunkist_lime","4","Male","East Asia (e.g., China, Korea, Japan)","Several times a month","I have never eaten Jelly Beans","6","6",2
+8,"mango","2","Male","East Asia (e.g., China, Korea, Japan)","Several times a month","I have never eaten Jelly Beans","8","6",3
+8,"matcha_milk_tea","1","Male","East Asia (e.g., China, Korea, Japan)","Several times a month","I have never eaten Jelly Beans","7","7",5
+9,"green_apple","5","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Several times a week","Less than once a month","5","6",3
+9,"juicy_pear","3","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Several times a week","Less than once a month","3","7",6
+9,"sunkist_lime","1","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Several times a week","Less than once a month","8","7",3
+9,"mango","2","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Several times a week","Less than once a month","7","8",3
+9,"matcha_milk_tea","4","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Several times a week","Less than once a month","7","7",5
+10,"green_apple","4","Female","United States","Several times a week","Several times a month","5","8",3
+10,"juicy_pear","5","Female","United States","Several times a week","Several times a month","1","8",7
+10,"sunkist_lime","3","Female","United States","Several times a week","Several times a month","8","7",2
+10,"mango","1","Female","United States","Several times a week","Several times a month","9","8",5
+10,"matcha_milk_tea","2","Female","United States","Several times a week","Several times a month","3","7",6
+11,"green_apple","2","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","7","6",1
+11,"juicy_pear","4","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","3","7",6
+11,"sunkist_lime","5","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","7","6",2
+11,"mango","3","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","7","6",2
+11,"matcha_milk_tea","1","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","8","7",2
+12,"green_apple","1","Female","United States","Several times a month","Less than once a month","8","6",3
+12,"juicy_pear","2","Female","United States","Several times a month","Less than once a month","3","6",7
+12,"sunkist_lime","4","Female","United States","Several times a month","Less than once a month","9","9",2
+12,"mango","5","Female","United States","Several times a month","Less than once a month","7","6",5
+12,"matcha_milk_tea","3","Female","United States","Several times a month","Less than once a month","7","4",5
+13,"green_apple","3","Female","Europe","Several times a week","Less than once a month","6","7",5
+13,"juicy_pear","1","Female","Europe","Several times a week","Less than once a month","4","9",5
+13,"sunkist_lime","2","Female","Europe","Several times a week","Less than once a month","8","6",2
+13,"mango","4","Female","Europe","Several times a week","Less than once a month","6","7",5
+13,"matcha_milk_tea","5","Female","Europe","Several times a week","Less than once a month","4","8",7
+14,"green_apple","1","Male","East Asia (e.g., China, Korea, Japan)","Once a week","Less than once a month","1","3",4
+14,"juicy_pear","3","Male","East Asia (e.g., China, Korea, Japan)","Once a week","Less than once a month","1","7",7
+14,"sunkist_lime","5","Male","East Asia (e.g., China, Korea, Japan)","Once a week","Less than once a month","5","3",4
+14,"mango","4","Male","East Asia (e.g., China, Korea, Japan)","Once a week","Less than once a month","7","7",4
+14,"matcha_milk_tea","2","Male","East Asia (e.g., China, Korea, Japan)","Once a week","Less than once a month","6","7",4
+15,"green_apple","2","Female","United States","Several times a month","Less than once a month","4","6",3
+15,"juicy_pear","1","Female","United States","Several times a month","Less than once a month","4","7",4
+15,"sunkist_lime","3","Female","United States","Several times a month","Less than once a month","8","6",2
+15,"mango","5","Female","United States","Several times a month","Less than once a month","6","7",3
+15,"matcha_milk_tea","4","Female","United States","Several times a month","Less than once a month","1","7",7
+16,"green_apple","4","Male","United States","Once a week","Less than once a month","6","5",3
+16,"juicy_pear","2","Male","United States","Once a week","Less than once a month","4","5",6
+16,"sunkist_lime","1","Male","United States","Once a week","Less than once a month","8","6",5
+16,"mango","3","Male","United States","Once a week","Less than once a month","7","6",4
+16,"matcha_milk_tea","5","Male","United States","Once a week","Less than once a month","3","7",5
+17,"green_apple","5","Female","East Asia (e.g., China, Korea, Japan)","Everyday","Less than once a month","1","9",6
+17,"juicy_pear","4","Female","East Asia (e.g., China, Korea, Japan)","Everyday","Less than once a month","1","9",7
+17,"sunkist_lime","2","Female","East Asia (e.g., China, Korea, Japan)","Everyday","Less than once a month","7","7",2
+17,"mango","1","Female","East Asia (e.g., China, Korea, Japan)","Everyday","Less than once a month","8","7",1
+17,"matcha_milk_tea","3","Female","East Asia (e.g., China, Korea, Japan)","Everyday","Less than once a month","1","9",7
+18,"green_apple","3","Female","United States","Less than once a month","Less than once a month","9","8",1
+18,"juicy_pear","5","Female","United States","Less than once a month","Less than once a month","2","4",7
+18,"sunkist_lime","4","Female","United States","Less than once a month","Less than once a month","9","7",1
+18,"mango","2","Female","United States","Less than once a month","Less than once a month","9","9",2
+18,"matcha_milk_tea","1","Female","United States","Less than once a month","Less than once a month","7","8",6
+19,"green_apple","5","Female","United States","Once a month","Less than once a month","6","7",2
+19,"juicy_pear","3","Female","United States","Once a month","Less than once a month","3","3",6
+19,"sunkist_lime","1","Female","United States","Once a month","Less than once a month","8","6",3
+19,"mango","2","Female","United States","Once a month","Less than once a month","6","5",5
+19,"matcha_milk_tea","4","Female","United States","Once a month","Less than once a month","6","2",5
+20,"green_apple","2","Female","United States","Several times a week","Less than once a month","8","8",3
+20,"juicy_pear","4","Female","United States","Several times a week","Less than once a month","6","7",6
+20,"sunkist_lime","5","Female","United States","Several times a week","Less than once a month","7","6",3
+20,"mango","3","Female","United States","Several times a week","Less than once a month","6","8",5
+20,"matcha_milk_tea","1","Female","United States","Several times a week","Less than once a month","8","7",3
+21,"green_apple","1","Female","East Asia (e.g., China, Korea, Japan)","Several times a week","Less than once a month","9","7",3
+21,"juicy_pear","2","Female","East Asia (e.g., China, Korea, Japan)","Several times a week","Less than once a month","8","9",2
+21,"sunkist_lime","4","Female","East Asia (e.g., China, Korea, Japan)","Several times a week","Less than once a month","4","9",5
+21,"mango","5","Female","East Asia (e.g., China, Korea, Japan)","Several times a week","Less than once a month","4","8",2
+21,"matcha_milk_tea","3","Female","East Asia (e.g., China, Korea, Japan)","Several times a week","Less than once a month","5","9",1
+22,"green_apple","3","Female","United States","Everyday","Several times a month","5","7",4
+22,"juicy_pear","1","Female","United States","Everyday","Several times a month","8","9",2
+22,"sunkist_lime","2","Female","United States","Everyday","Several times a month","5","6",3
+22,"mango","4","Female","United States","Everyday","Several times a month","7","6",3
+22,"matcha_milk_tea","5","Female","United States","Everyday","Several times a month","2","3",5
+23,"green_apple","1","Male","Europe","Less than once a month","Less than once a month","7","7",5
+23,"juicy_pear","3","Male","Europe","Less than once a month","Less than once a month","6","8",2
+23,"sunkist_lime","5","Male","Europe","Less than once a month","Less than once a month","7","7",2
+23,"mango","4","Male","Europe","Less than once a month","Less than once a month","8","7",2
+23,"matcha_milk_tea","2","Male","Europe","Less than once a month","Less than once a month","4","4",6
+24,"green_apple","2","Female","United States","Several times a month","Less than once a month","7","7",1
+24,"juicy_pear","1","Female","United States","Several times a month","Less than once a month","8","5",2
+24,"sunkist_lime","3","Female","United States","Several times a month","Less than once a month","9","7",2
+24,"mango","5","Female","United States","Several times a month","Less than once a month","8","8",3
+24,"matcha_milk_tea","4","Female","United States","Several times a month","Less than once a month","7","4",4
+25,"green_apple","4","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","9","7",2
+25,"juicy_pear","2","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","7","6",4
+25,"sunkist_lime","1","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","8","7",1
+25,"mango","3","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","8","8",2
+25,"matcha_milk_tea","5","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","5","5",5
+26,"green_apple","5","Female","United States","Once a week","Less than once a month","7","8",1
+26,"juicy_pear","4","Female","United States","Once a week","Less than once a month","3","9",6
+26,"sunkist_lime","2","Female","United States","Once a week","Less than once a month","6","7",3
+26,"mango","1","Female","United States","Once a week","Less than once a month","7","6",5
+26,"matcha_milk_tea","3","Female","United States","Once a week","Less than once a month","2","8",6
+27,"green_apple","3","Male","South Asia (e.g., India, Pakistan, Bangladesh)","Several times a week","Once a week","5","6",2
+27,"juicy_pear","5","Male","South Asia (e.g., India, Pakistan, Bangladesh)","Several times a week","Once a week","7","4",3
+27,"sunkist_lime","4","Male","South Asia (e.g., India, Pakistan, Bangladesh)","Several times a week","Once a week","9","8",1
+27,"mango","2","Male","South Asia (e.g., India, Pakistan, Bangladesh)","Several times a week","Once a week","8","7",1
+27,"matcha_milk_tea","1","Male","South Asia (e.g., India, Pakistan, Bangladesh)","Several times a week","Once a week","2","7",5
+28,"green_apple","5","Male","United States","Several times a month","Less than once a month","4","7",1
+28,"juicy_pear","3","Male","United States","Several times a month","Less than once a month","3","7",6
+28,"sunkist_lime","1","Male","United States","Several times a month","Less than once a month","7","7",1
+28,"mango","2","Male","United States","Several times a month","Less than once a month","7","8",1
+28,"matcha_milk_tea","4","Male","United States","Several times a month","Less than once a month","7","8",5
+29,"green_apple","4","Female","United States","Once a week","Less than once a month","4","6",2
+29,"juicy_pear","5","Female","United States","Once a week","Less than once a month","3","8",5
+29,"sunkist_lime","3","Female","United States","Once a week","Less than once a month","7","7",1
+29,"mango","1","Female","United States","Once a week","Less than once a month","8","7",1
+29,"matcha_milk_tea","2","Female","United States","Once a week","Less than once a month","2","5",5
+30,"green_apple","1","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Once a month","Less than once a month","5","7",5
+30,"juicy_pear","2","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Once a month","Less than once a month","6","3",6
+30,"sunkist_lime","4","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Once a month","Less than once a month","7","5",5
+30,"mango","5","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Once a month","Less than once a month","9","8",6
+30,"matcha_milk_tea","3","Male","Southeast Asia (e.g., Vietnam, Philippines, Thailand)","Once a month","Less than once a month","2","2",7
+31,"green_apple","3","Female","East Asia (e.g., China, Korea, Japan)","Once a week","once a month","3","8",5
+31,"juicy_pear","1","Female","East Asia (e.g., China, Korea, Japan)","Once a week","once a month","2","7",7
+31,"sunkist_lime","2","Female","East Asia (e.g., China, Korea, Japan)","Once a week","once a month","7","6",1
+31,"mango","4","Female","East Asia (e.g., China, Korea, Japan)","Once a week","once a month","8","8",5
+31,"matcha_milk_tea","5","Female","East Asia (e.g., China, Korea, Japan)","Once a week","once a month","6","5",5
+32,"green_apple","1","Female","Prefer not to say","Several times a week","Less than once a month","8","7",2
+32,"juicy_pear","3","Female","Prefer not to say","Several times a week","Less than once a month","5","5",4
+32,"sunkist_lime","5","Female","Prefer not to say","Several times a week","Less than once a month","6","8",3
+32,"mango","4","Female","Prefer not to say","Several times a week","Less than once a month","6","6",3
+32,"matcha_milk_tea","2","Female","Prefer not to say","Several times a week","Less than once a month","5","4",5
+33,"green_apple","2","Female","United States","Several times a month","Less than once a month","8","9",2
+33,"juicy_pear","1","Female","United States","Several times a month","Less than once a month","2","8",6
+33,"sunkist_lime","3","Female","United States","Several times a month","Less than once a month","7","4",5
+33,"mango","5","Female","United States","Several times a month","Less than once a month","8","7",1
+33,"matcha_milk_tea","4","Female","United States","Several times a month","Less than once a month","4","9",3
+34,"green_apple","4","Female","East Asia (e.g., China, Korea, Japan)","Several times a week","Less than once a month","7","8",3
+34,"juicy_pear","2","Female","East Asia (e.g., China, Korea, Japan)","Several times a week","Less than once a month","2","9",7
+34,"sunkist_lime","1","Female","East Asia (e.g., China, Korea, Japan)","Several times a week","Less than once a month","8","8",1
+34,"mango","3","Female","East Asia (e.g., China, Korea, Japan)","Several times a week","Less than once a month","9","8",2
+34,"matcha_milk_tea","5","Female","East Asia (e.g., China, Korea, Japan)","Several times a week","Less than once a month","9","7",5
+35,"green_apple","5","Female","United States","Once a month","Less than once a month","5","6",3
+35,"juicy_pear","4","Female","United States","Once a month","Less than once a month","6","6",3
+35,"sunkist_lime","2","Female","United States","Once a month","Less than once a month","8","7",2
+35,"mango","1","Female","United States","Once a month","Less than once a month","7","7",3
+35,"matcha_milk_tea","3","Female","United States","Once a month","Less than once a month","3","6",5
+36,"green_apple","3","Female","United States","Several times a month","Less than once a month","4","8",5
+36,"juicy_pear","5","Female","United States","Several times a month","Less than once a month","2","6",7
+36,"sunkist_lime","4","Female","United States","Several times a month","Less than once a month","3","7",6
+36,"mango","2","Female","United States","Several times a month","Less than once a month","8","8",2
+36,"matcha_milk_tea","1","Female","United States","Several times a month","Less than once a month","7","7",2
+37,"green_apple","5","Female","United States","Several times a week","Less than once a month","6","8",3
+37,"juicy_pear","3","Female","United States","Several times a week","Less than once a month","4","8",5
+37,"sunkist_lime","1","Female","United States","Several times a week","Less than once a month","9","9",2
+37,"mango","2","Female","United States","Several times a week","Less than once a month","8","9",2
+37,"matcha_milk_tea","4","Female","United States","Several times a week","Less than once a month","2","8",7
+38,"green_apple","4","Female","United States","Several times a week","once a month","8","6",4
+38,"juicy_pear","5","Female","United States","Several times a week","once a month","7","6",4
+38,"sunkist_lime","3","Female","United States","Several times a week","once a month","5","7",4
+38,"mango","1","Female","United States","Several times a week","once a month","7","6",5
+38,"matcha_milk_tea","2","Female","United States","Several times a week","once a month","6","6",6
+39,"green_apple","2","Female","United States","Once a week","Less than once a month","5","4",6
+39,"juicy_pear","4","Female","United States","Once a week","Less than once a month","1","2",7
+39,"sunkist_lime","5","Female","United States","Once a week","Less than once a month","8","8",3
+39,"mango","3","Female","United States","Once a week","Less than once a month","2","6",7
+39,"matcha_milk_tea","1","Female","United States","Once a week","Less than once a month","7","7",5
+40,"green_apple","1","Male","United States","Several times a week","Less than once a month","6","4",5
+40,"juicy_pear","2","Male","United States","Several times a week","Less than once a month","3","6",6
+40,"sunkist_lime","4","Male","United States","Several times a week","Less than once a month","8","5",1
+40,"mango","5","Male","United States","Several times a week","Less than once a month","8","6",3
+40,"matcha_milk_tea","3","Male","United States","Several times a week","Less than once a month","4","3",6
+41,"green_apple","3","Male","United States","Once a month","Less than once a month","4","3",5
+41,"juicy_pear","1","Male","United States","Once a month","Less than once a month","3","4",6
+41,"sunkist_lime","2","Male","United States","Once a month","Less than once a month","8","6",3
+41,"mango","4","Male","United States","Once a month","Less than once a month","7","7",5
+41,"matcha_milk_tea","5","Male","United States","Once a month","Less than once a month","6","2",6
+42,"green_apple","1","Female","United States","Once a month","Less than once a month","9","7",5
+42,"juicy_pear","3","Female","United States","Once a month","Less than once a month","5","5",5
+42,"sunkist_lime","5","Female","United States","Once a month","Less than once a month","9","5",3
+42,"mango","4","Female","United States","Once a month","Less than once a month","9","9",3
+42,"matcha_milk_tea","2","Female","United States","Once a month","Less than once a month","2","6",5
+43,"green_apple","2","Male","United States","Less than once a month","Less than once a month","4","9",1
+43,"juicy_pear","1","Male","United States","Less than once a month","Less than once a month","5","6",4
+43,"sunkist_lime","3","Male","United States","Less than once a month","Less than once a month","7","8",5
+43,"mango","5","Male","United States","Less than once a month","Less than once a month","6","6",5
+43,"matcha_milk_tea","4","Male","United States","Less than once a month","Less than once a month","8","5",7
+44,"green_apple","4","Female","United States","Less than once a month","Less than once a month","3","7",6
+44,"juicy_pear","2","Female","United States","Less than once a month","Less than once a month","2","6",6
+44,"sunkist_lime","1","Female","United States","Less than once a month","Less than once a month","8","6",4
+44,"mango","3","Female","United States","Less than once a month","Less than once a month","8","8",3
+44,"matcha_milk_tea","5","Female","United States","Less than once a month","Less than once a month","5","6",5
+45,"green_apple","5","Female","United States","Several times a week","Less than once a month","5","7",2
+45,"juicy_pear","4","Female","United States","Several times a week","Less than once a month","2","4",7
+45,"sunkist_lime","2","Female","United States","Several times a week","Less than once a month","8","6",2
+45,"mango","1","Female","United States","Several times a week","Less than once a month","8","7",2
+45,"matcha_milk_tea","3","Female","United States","Several times a week","Less than once a month","6","5",6
+46,"green_apple","3","Female","United States","Once a month","Less than once a month","1","9",2
+46,"juicy_pear","5","Female","United States","Once a month","Less than once a month","1","1",3
+46,"sunkist_lime","4","Female","United States","Once a month","Less than once a month","9","4",1
+46,"mango","2","Female","United States","Once a month","Less than once a month","7","8",1
+46,"matcha_milk_tea","1","Female","United States","Once a month","Less than once a month","2","7",5
+47,"green_apple","5","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","1","7",7
+47,"juicy_pear","3","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","2","5",6
+47,"sunkist_lime","1","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","8","7",2
+47,"mango","2","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","7","6",5
+47,"matcha_milk_tea","4","Female","East Asia (e.g., China, Korea, Japan)","Once a month","Less than once a month","4","4",3
+48,"green_apple","4","Male","East Asia (e.g., China, Korea, Japan)","Several times a month","Less than once a month","3","1",4
+48,"juicy_pear","5","Male","East Asia (e.g., China, Korea, Japan)","Several times a month","Less than once a month","1","1",7
+48,"sunkist_lime","3","Male","East Asia (e.g., China, Korea, Japan)","Several times a month","Less than once a month","7","3",2
+48,"mango","1","Male","East Asia (e.g., China, Korea, Japan)","Several times a month","Less than once a month","6","3",3
+48,"matcha_milk_tea","2","Male","East Asia (e.g., China, Korea, Japan)","Several times a month","Less than once a month","2","1",6
+49,"green_apple","2","Nonbinary","United States","Once a month","Less than once a month","6","8",1
+49,"juicy_pear","4","Nonbinary","United States","Once a month","Less than once a month","6","8",6
+49,"sunkist_lime","5","Nonbinary","United States","Once a month","Less than once a month","8","8",3
+49,"mango","3","Nonbinary","United States","Once a month","Less than once a month","8","8",5
+49,"matcha_milk_tea","1","Nonbinary","United States","Once a month","Less than once a month","7","8",3
+50,"green_apple","1","Female","United States","Once a week","Less than once a month","7","8",3
+50,"juicy_pear","2","Female","United States","Once a week","Less than once a month","3","8",6
+50,"sunkist_lime","4","Female","United States","Once a week","Less than once a month","6","7",2
+50,"mango","5","Female","United States","Once a week","Less than once a month","3","8",5
+50,"matcha_milk_tea","3","Female","United States","Once a week","Less than once a month","6","7",6
+51,"green_apple","3","Female","South Asia (e.g., India, Pakistan, Bangladesh)","Several times a month","Less than once a month","6","9",3
+51,"juicy_pear","1","Female","South Asia (e.g., India, Pakistan, Bangladesh)","Several times a month","Less than once a month","4","7",6
+51,"sunkist_lime","2","Female","South Asia (e.g., India, Pakistan, Bangladesh)","Several times a month","Less than once a month","6","8",2
+51,"mango","4","Female","South Asia (e.g., India, Pakistan, Bangladesh)","Several times a month","Less than once a month","6","8",6
+51,"matcha_milk_tea","5","Female","South Asia (e.g., India, Pakistan, Bangladesh)","Several times a month","Less than once a month","1","9",2
+52,"green_apple","1","Female","Central Asia (Afghanistan)","Several times a week","Less than once a month","6","7",2
+52,"juicy_pear","3","Female","Central Asia (Afghanistan)","Several times a week","Less than once a month","2","7",6
+52,"sunkist_lime","5","Female","Central Asia (Afghanistan)","Several times a week","Less than once a month","7","7",2
+52,"mango","4","Female","Central Asia (Afghanistan)","Several times a week","Less than once a month","7","8",1
+52,"matcha_milk_tea","2","Female","Central Asia (Afghanistan)","Several times a week","Less than once a month","4","7",6
+53,"green_apple","2","Male","East Asia (e.g., China, Korea, Japan)","Less than once a month","Less than once a month","5","6",2
+53,"juicy_pear","1","Male","East Asia (e.g., China, Korea, Japan)","Less than once a month","Less than once a month","4","6",5
+53,"sunkist_lime","3","Male","East Asia (e.g., China, Korea, Japan)","Less than once a month","Less than once a month","8","6",1
+53,"mango","5","Male","East Asia (e.g., China, Korea, Japan)","Less than once a month","Less than once a month","6","6",5
+53,"matcha_milk_tea","4","Male","East Asia (e.g., China, Korea, Japan)","Less than once a month","Less than once a month","2","6",6
+54,"green_apple","4","Female","United States","Several times a week","Less than once a month","4","7",2
+54,"juicy_pear","2","Female","United States","Several times a week","Less than once a month","2","7",5
+54,"sunkist_lime","1","Female","United States","Several times a week","Less than once a month","6","5",4
+54,"mango","3","Female","United States","Several times a week","Less than once a month","5","7",5
+54,"matcha_milk_tea","5","Female","United States","Several times a week","Less than once a month","2","8",5
+55,"green_apple","5","Male","United States","Once a month","Less than once a month","5","6",4
+55,"juicy_pear","4","Male","United States","Once a month","Less than once a month","3","5",5
+55,"sunkist_lime","2","Male","United States","Once a month","Less than once a month","8","7",2
+55,"mango","1","Male","United States","Once a month","Less than once a month","6","6",3
+55,"matcha_milk_tea","3","Male","United States","Once a month","Less than once a month","4","4",6
