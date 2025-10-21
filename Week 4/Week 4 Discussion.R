@@ -6,101 +6,127 @@ Data <- as.data.frame(Data)
 
 
 
-# SLR ---------------------------------------------------------------------
-##Using SLR to predict score from hours studied
+## Simple Linear Regression: 1 Outcome / 1 Predictor ---------------------------------
+library(ggplot2)
 library(tidyverse)
+
+# Creating a linear model to predict final score based on hours studied
+model1 <- lm(Final~Hours, Data)
+summary(model1)
+confint(model1)
+
+# Plot Hours Studies vs Final Score
+Data %>% 
+  ggplot(aes(x=Hours, y=Final)) + 
+  geom_point()
+
+# Adding a linear regression line
 Data %>% 
   ggplot(aes(x=Hours, y=Final)) + 
   geom_point() + 
   stat_smooth(formula = y~x, method = lm, se = FALSE)
-#FALSE = no confidence interval
 
+# Adding a linear regression line with confidence interval
+# Q- What does a confidence interval tell us about our model?
 Data %>% 
   ggplot(aes(x=Hours, y=Final)) + 
   geom_point() + 
-  stat_smooth(formula = y~x, method = lm, se = TRUE)
-#TRUE = confidence interval
+  stat_smooth(formula = y~x, method = lm, se = TRUE) #TRUE = confidence interval
 
-
-##Getting slope and intercept by creating a linear model
-whystudy <- lm(Final~Hours, Data)
-summary(whystudy)
-
-#checking out how "good" our model is
+# checking if our model violates homoscedasticity assumption
 par(mfrow = c(1, 1))
-plot(whystudy)
+plot(model1)
 
-#Would this be considered a good model based on the residuals vs fitted?
-
-
-
-
-
-# MLR ---------------------------------------------------------------------
-##Using MLR to predict score using hours studied attendance and liking
-whatscore <- lm(Final~Hours+Attendance+`Mid-Term`, Data)
-summary(whatscore)
-
-#Attendance is not significant so we can remove from the model and rerun
-whatscore <- lm(Final~Hours+`Mid-Term`, Data)
-summary(whatscore)
-
-#extract confidence interval from the model
-confint(whatscore)
-
-summary.aov(whatscore)
+# Making Predictions based on this model (e.g., a student who studies 40 hours a week)
+y = 38.8023 + 1.2997*40
+y
 
 
-## Prediction using the model
-# What will be the predicted score of a student who studied 40 hours a week and attended 90% of their classes?
+## Multiple Linear Regression: 1 Outcome / >1 Predictors ------------------------------
+# Creating a linear model to predict final score based on hours studied, attendance, and mid-term score
+model2a <- lm(Final~Hours+Attendance+`Mid-Term`, Data)
+summary(model2a)
+confint(model2a)
+
+# Refining the model by removing non-significant predictors
+model2b <- lm(Final~Hours+`Mid-Term`, Data)
+summary(model2b)
+confint(model2b)
+
+# Extract confidence interval from the model
+
+#
+anova(model2a)
+
+## Making predictions using the model
+# e.g., A student who studied 40 hours a week and attended 90% of their classes?
+# The "Manual" way
+y = 17.50503 + 0.82324*40 + 0.48221*90
+y  
+  
+# The "Automatic" way 
 new <- as.data.frame(cbind(40,90))
 colnames(new) <- c("Hours","Mid-Term")
-predict.lm(whatscore, new, level = 0.95)
+predict.lm(model2b, new, level = 0.95)
 
 
 
 # Data Visualization ------------------------------------------------------
-#Plotting the MLR model using 3 dimensions (interactive)
+#Plotting the model using in 3 dimensions (interactive)
 library(plotly)
-Study$Grade <- as.factor(Study$Grade)
-p <- plot_ly(Study, x = ~Hours, y = ~Attendance, z = ~Final, color = ~Grade)
-p %>% layout(scene = list(xaxis = list(title = 'Study Time per month (hour)'),
-                          yaxis = list(title = 'Attendance Rate (%)'),
-                          zaxis = list(title = 'Final Exam Score')))
+
+p <- Data %>% 
+  plot_ly(x = ~Hours, 
+          y = ~Attendance, 
+          z = ~Final, 
+          type = 'scatter3d', 
+          mode = 'markers', 
+          marker = list(size = 5, color = ~Final, colorscale = 'Viridis', opacity = 0.8)) %>%
+  layout(scene = list( xaxis = list(title = 'Study Time per Month (Hours)'), 
+                       yaxis = list(title = 'Attendance Rate (%)'), 
+                       zaxis = list(title = 'Final Exam Score')))
+
+print(p)
 
 
-#Plotting the MLR model using 3 dimensions (non interactive)
-library(scatterplot3d)
-s3d <- scatterplot3d(x=Study$Hours, y=Study$Attendance, z=Study$Final, pch = 16, color="steelblue",
+
+
+#P lotting the model in 3 dimensions (non interactive)
+s3d <- scatterplot3d::scatterplot3d(x=Data$Hours, y=Data$Attendance, z=Data$Final, pch = 16, color="steelblue",
+                     xlab = "Study Time per month (hour)",
+                     ylab = "Attendance Rate (%)",
+                     zlab = "Final Exam Score",
+                     angle=70)
+
+
+# Changing the angle for better visualization
+s3d <- scatterplot3d::scatterplot3d(x=Data$Hours, y=Data$Attendance, z=Data$Final, pch = 16, color="steelblue",
                      xlab = "Study Time per month (hour)",
                      ylab = "Attendance Rate (%)",
                      zlab = "Final Exam Score",
                      angle=50)
 
+# Add regression plane
+s3d$plane3d(model2b)
 
 
-s3d <- scatterplot3d(x=Study$Hours, y=Study$Attendance, z=Study$Final, pch = 16, color="steelblue",
-                     xlab = "Study Time per month (hour)",
-                     ylab = "Attendance Rate (%)",
-                     zlab = "Final Exam Score",
-                     angle=50)
-#add best fit plane
-s3d$plane3d(whatscore)
+# Adding grade as a categorical variable
+library(wesanderson)
 
-#color the points by the grade that they received
-library(wesanderson) # color package
-Study$Grade <- as.factor(Study$Grade)
+Data$Grade <- as.factor(Data$Grade)
+
 colors <- wes_palette("GrandBudapest1",3) # select 3 colors from a color palette
-colors <- colors[as.numeric(Study$Grade)]
-s3d <- scatterplot3d(x=Study$Hours, y=Study$Attendance, z=Study$Final, pch = 16, color=colors,
+
+colors <- colors[as.numeric(Data$Grade)]
+
+s3d <- scatterplot3d::scatterplot3d(x=Data$Hours, y=Data$Attendance, z=Data$Final, pch = 16, color=colors,
                      xlab = "Study Time per month (hour)",
                      ylab = "Attendance Rate (%)",
                      zlab = "Final Exam Score",
                      angle=50)
-#add best fit plane
-s3d$plane3d(whatscore)
+# Add regression plane
+s3d$plane3d(model2b)
 
 #add legend
-legend("top", legend = levels(Study$Grade), col=wes_palette("GrandBudapest1",3), pch = 16,
-       inset = -0.25, xpd = TRUE, horiz = TRUE)
+legend("top", legend = levels(Data$Grade), col=wes_palette("GrandBudapest1",3), pch = 16, inset = -0.25, xpd = TRUE, horiz = TRUE)
 
