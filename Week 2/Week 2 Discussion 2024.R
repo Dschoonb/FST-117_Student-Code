@@ -26,7 +26,7 @@ Data_Long <-
 # Basic Data Exploration --------------------------------------------------
 ## measures of central tendency
 # mean
-mean(Data_Long$Liking_Score)
+a <- mean(Data_Long$Liking_Score)
 
 # What if I want the means for each product?
 Data_Long %>%
@@ -68,7 +68,7 @@ summary(Data_Long)
 # Basic histogram
 Data_Long %>% 
   ggplot() +
-  geom_histogram(mapping = aes(x=Liking_Score))
+  geom_histogram(aes(x=Liking_Score))
 
 
 # More information with color and facets
@@ -84,9 +84,7 @@ Data_Long %>%
   ggplot() +
   geom_histogram(mapping = aes(x = Liking_Score), 
                  fill = "skyblue", 
-                 bins = 5) +
-  facet_wrap(~product)
-
+                 bins = 9)
 
 #2D Visualizations of Data ---------------------------------------------------------------
 ## Basic Scatter Plot
@@ -110,7 +108,7 @@ print(a4)
 ## Scatter Plot with colors and a different theme
 b1 <- Data_Long %>% 
   ggplot(aes(x = Liking_Score, y = Flavor_Novelty)) +
-  geom_jitter(color= "orange") + # change point color
+  geom_jitter(color= "firebrick") + # change point color
   labs(x="Liking", y="Flavor Novelty", title = "Jelly Bean: Liking vs. Flavor Novelty") +
   theme_minimal() # change overall theme
 print(b1)
