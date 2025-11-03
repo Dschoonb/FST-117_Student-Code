@@ -15,6 +15,12 @@ model1 <- lm(Final~Hours, Data)
 summary(model1)
 confint(model1)
 
+# remember that R squared is the proportion of variance explained by the model
+# and is equal to the square of the correlation between predictor and outcome
+a<- cor(Data$Hours, Data$Final)
+a^2  # R squared value
+
+
 # Plot Hours Studies vs Final Score
 Data %>% 
   ggplot(aes(x=Hours, y=Final)) + 
