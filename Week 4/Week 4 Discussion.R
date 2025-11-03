@@ -56,7 +56,9 @@ confint(model2b)
 # Extract confidence interval from the model
 
 #
-anova(model2a)
+anova(model2a, model2b) # Comparing the two models using ANOVA
+#use the aic
+AIC(model2a, model2b) # Comparing the two models using AIC
 
 ## Making predictions using the model
 # e.g., A student who studied 40 hours a week and attended 90% of their classes?

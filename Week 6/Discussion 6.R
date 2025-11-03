@@ -30,9 +30,22 @@ anova(model2int)
 library(ggplot2)
 a <- 
   liquids %>% 
-  ggplot(aes(x=Sample, y=stickiness, group=Panelist, color=Panelist)) + 
+  ggplot(aes(x=Sample, y=thickness, group=Panelist, color=Panelist)) + 
   geom_point() +
-  stat_summary(aes(y = stickiness, group=Panelist, color=Panelist), fun=mean, geom="line")
+  stat_summary(aes(y = thickness, group=Panelist, color=Panelist), fun=mean, geom="line")
 
 #Separating Data by panelist using facet_wrap function
 a1 <- a + facet_wrap(~Panelist)
+a1
+
+#Using interaction function to create interaction plot
+interaction.plot(x.factor = liquids$Sample,
+                 trace.factor = liquids$Panelist,
+                 response = liquids$thickness,
+                 fun = mean,
+                 type = "b",
+                 col = c("red","blue","green","purple"),
+                 pch = c(16,17,15,18),
+                 xlab = "Sample",
+                 ylab = "Mean thickness",
+                 legend = TRUE)
