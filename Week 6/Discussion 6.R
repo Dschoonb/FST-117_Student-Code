@@ -33,7 +33,7 @@ a <-
   ggplot(aes(x=Sample, y=thickness, group=Panelist, color=Panelist)) + 
   geom_point() +
   stat_summary(aes(y = thickness, group=Panelist, color=Panelist), fun=mean, geom="line")
-
+a
 #Separating Data by panelist using facet_wrap function
 a1 <- a + facet_wrap(~Panelist)
 a1
