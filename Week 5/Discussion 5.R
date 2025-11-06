@@ -32,6 +32,7 @@ ggplot(data=liquids) + geom_point(aes(x=Sample, y=thickness, color=Sample))
 
 # ANOVA ------------------------------------------------
 liquids.anova <- lm(thickness~Sample, data = liquids)
+summary(liquids.anova)
 anova(liquids.anova)
 
 

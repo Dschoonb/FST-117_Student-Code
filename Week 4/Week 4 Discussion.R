@@ -17,7 +17,7 @@ confint(model1)
 
 # remember that R squared is the proportion of variance explained by the model
 # and is equal to the square of the correlation between predictor and outcome
-a<- cor(Data$Hours, Data$Final)
+a <- cor(Data$Hours, Data$Final)
 a^2  # R squared value
 
 
@@ -60,12 +60,11 @@ summary(model2b)
 confint(model2b)
 
 # Extract confidence interval from the model
-
 #
-anova(model2a)
+anova(model2a,model2b)
 
 ## Making predictions using the model
-# e.g., A student who studied 40 hours a week and attended 90% of their classes?
+# e.g., A student who studied 40 hours a week and a 90 Mid Term Score?
 # The "Manual" way
 y = 17.50503 + 0.82324*40 + 0.48221*90
 y  
