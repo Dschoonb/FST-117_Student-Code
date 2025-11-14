@@ -43,13 +43,13 @@ str(liquids)
 ## 4-way ANOVA with all interactions (we don't have enough degrees of freedom to do this)
 library(lmerTest)
 model1 <- lm(Thickness ~ (Session*Panelist*Gum*Level), data=liquids)
-summary(model1)
+anova(model1)
 ##  we don't see F-values and p-values here
 
 
 ## 4-way ANOVA with 3 way interactions
 model2 <- lm(Thickness ~ (Session+Panelist+Gum+Level)^3, data=liquids)
-summary(model2)
+anova(model2)
 
 
 
@@ -63,7 +63,7 @@ model2.1 <- lm(Thickness ~
                    Panelist:Gum + Panelist:Level + Gum:Level + 
                    Session:Panelist:Gum + Session:Panelist:Level + 
                    Session:Gum:Level + Panelist:Gum:Level), data=liquids)
-summary(model2.1)
+anova(model2.1)
 
 
 # took out interactions that were not significant 
@@ -73,7 +73,7 @@ model2.2 <- lm(Thickness ~
                    Session:Panelist + Session:Gum + 
                    Panelist:Gum + Panelist:Level + Gum:Level + 
                    Session:Gum:Level + Panelist:Gum:Level), data=liquids)
-summary(mode2.2)
+anova(mode2.2)
 
 
 # continue refining model 
@@ -83,7 +83,7 @@ model2.3 <- lm(Thickness ~
                    Session:Panelist +  
                    Panelist:Gum + Panelist:Level + Gum:Level + 
                    Panelist:Gum:Level), data=liquids)
-summary(model2.3) 
+anova(model2.3) 
 
 #mean sq error increased!
 
@@ -97,7 +97,7 @@ model2.4 <- lm(Thickness ~
                    Session:Panelist +  
                    Panelist:Gum + Panelist:Level + Gum:Level + 
                    Session:Gum:Level + Panelist:Gum:Level), data=liquids)
-summary(model2.4)
+anova(model2.4)
 
 
 
@@ -110,7 +110,7 @@ model2.4 <- lm(Thickness ~
                      Session:Panelist +  
                      Panelist:Gum + Panelist:Level + Gum:Level + 
                      Session:Gum:Level + Panelist:Gum:Level), data=liquids)
-summary(model2.4)
+anova(model2.4)
 
 
 ## testing the effect of gum
@@ -145,3 +145,4 @@ summary(model3.1.mixed) # with the pseudo mixed model, gum effect is no longer s
 
 model3.1.mixed2 <- lm(Slipperiness ~ Level + Error(Panelist/Level), data=liquids)
 summary(model3.1.mixed2)
+
