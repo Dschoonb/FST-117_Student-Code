@@ -1,6 +1,6 @@
 # import data ------------------------------------------------------------------
 library(readxl)
-liquids <- read_excel("week 7/liquids2.xlsx")
+liquids <- read_excel("Week 7 (Daniel) Multi-way ANOVA/liquids2.xlsx")
 
 
 ## take a look at our data
@@ -73,7 +73,7 @@ model2.2 <- lm(Thickness ~
                    Session:Panelist + Session:Gum + 
                    Panelist:Gum + Panelist:Level + Gum:Level + 
                    Session:Gum:Level + Panelist:Gum:Level), data=liquids)
-anova(mode2.2)
+anova(model2.2)
 
 
 # continue refining model 
@@ -104,7 +104,7 @@ anova(model2.4)
 
 # Pseudo mixed model -----------------------------------------------------------
 
-## re-run refined full model
+## re-run refined full model with lm()
 model2.4 <- lm(Thickness ~ 
                   (Session+Panelist+Gum+Level+
                      Session:Panelist +  
@@ -112,19 +112,29 @@ model2.4 <- lm(Thickness ~
                      Session:Gum:Level + Panelist:Gum:Level), data=liquids)
 anova(model2.4)
 
+## Alternatively, re-run model with aov()
+## results should be very close to lm()
+model2.4.2 <- aov(Thickness ~ 
+                 (Session+Panelist+Gum+Level+
+                    Session:Panelist +  
+                    Panelist:Gum + Panelist:Level + Gum:Level + 
+                    Session:Gum:Level + Panelist:Gum:Level), data=liquids)
+summary(model2.4)
+
 
 ## testing the effect of gum
-model2.4.mixed <- lm(Thickness ~ Gum + Error(Panelist/Gum), data=liquids)
+## keep in mind, pseudo mixed model must use aov() with listing out Error()
+model2.4.mixed <- aov(Thickness ~ Gum + Error(Panelist/Gum), data=liquids)
 summary(model2.4.mixed)
 
 # testing the effect of level
-model2.4.mixed2 <- lm(Thickness ~ Level + Error(Panelist/Level), data=liquids)
+model2.4.mixed2 <- aov(Thickness ~ Level + Error(Panelist/Level), data=liquids)
 summary(model2.4.mixed2)
 
 
 # what if our dependent variable is slipperiness?
 
-model3 <- lm(Slipperiness ~ 
+model3 <- aov(Slipperiness ~ 
                 (Session+Panelist+Gum+Level+
                    Session:Panelist + Session:Gum + Session:Level + 
                    Panelist:Gum + Panelist:Level + Gum:Level + 
@@ -132,7 +142,7 @@ model3 <- lm(Slipperiness ~
                    Session:Gum:Level + Panelist:Gum:Level), data=liquids)
 summary(model3)
 
-model3.1 <- lm(Slipperiness ~ 
+model3.1 <- aov(Slipperiness ~ 
                   (Session+Panelist+Gum+Level+
                      Session:Panelist +  
                      Panelist:Gum + Panelist:Level + Gum:Level + 
@@ -140,9 +150,8 @@ model3.1 <- lm(Slipperiness ~
 summary(model3.1)
 
 
-model3.1.mixed <- lm(Slipperiness ~ Gum + Error(Panelist/Gum), data=liquids)
+model3.1.mixed <- aov(Slipperiness ~ Gum + Error(Panelist/Gum), data=liquids)
 summary(model3.1.mixed) # with the pseudo mixed model, gum effect is no longer significant
 
-model3.1.mixed2 <- lm(Slipperiness ~ Level + Error(Panelist/Level), data=liquids)
+model3.1.mixed2 <- aov(Slipperiness ~ Level + Error(Panelist/Level), data=liquids)
 summary(model3.1.mixed2)
-
